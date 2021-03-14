@@ -1,0 +1,3 @@
+rootProject.name = "Blogo App"
+include ':app'
+include ':api'

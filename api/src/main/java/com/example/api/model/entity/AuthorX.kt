@@ -1,11 +1,11 @@
-package com.example.api.model
+package com.example.api.model.entity
 
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Author(
+data class AuthorX(
     @Json(name = "bio")
     val bio: String,
     @Json(name = "following")

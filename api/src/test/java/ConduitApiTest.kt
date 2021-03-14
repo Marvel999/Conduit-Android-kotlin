@@ -1,9 +1,13 @@
 import com.example.api.ConduitClient
+import com.example.api.model.entity.UserCred
+import com.example.api.model.requests.UserRequests
 import com.example.api.service.ConduitApi
 import kotlinx.coroutines.runBlocking
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
 import java.util.*
+import kotlin.random.Random.Default.nextInt
 
 class ConduitApiTest {
 
@@ -39,6 +43,17 @@ class ConduitApiTest {
             assertNotNull(articles.body()?.articles)
         }
 
+    }
+
+    @Test
+    fun `Create new user`(){
+        val userCred=UserCred(email = "testmail332@test.com",
+                            password = "Tu999999999",
+                            username = "Marhwiojrioew")
+        runBlocking {
+            val user=conduitClient.api.addUser(UserRequests(userCred))
+            assertEquals(userCred.username,user.body()?.user?.username)
+        }
     }
 
 }

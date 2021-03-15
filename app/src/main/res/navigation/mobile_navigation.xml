@@ -3,23 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_article">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.blogoapp.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_article"
+        android:name="com.example.blogoapp.ui.article.ArticleFragment"
+        android:label="@string/menu_article"
+        tools:layout="@layout/fragment_article" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.blogoapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_personalfeed"
+        android:name="com.example.blogoapp.ui.personalfeed.PersonalFeedFragment"
+        android:label="@string/menu_personalfeed"
+        tools:layout="@layout/fragment_personalfeed" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.blogoapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        android:id="@+id/nav_profile"
+        android:name="com.example.blogoapp.ui.profile.ProfileFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

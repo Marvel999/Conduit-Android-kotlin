@@ -1,4 +1,4 @@
-package com.example.blogoapp.ui.home
+package com.example.blogoapp.ui.article
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.blogoapp.R
 
-class HomeFragment : Fragment() {
+class ArticleFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var articleViewModel: ArticleViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        articleViewModel =
+                ViewModelProvider(this).get(ArticleViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_article, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
+        articleViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

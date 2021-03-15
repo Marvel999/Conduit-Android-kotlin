@@ -13,7 +13,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
     //It is connecter between moshi and retrofit
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     //Moshi json converter
@@ -29,6 +29,7 @@ dependencies {
 
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.1'
 
-
+//multidex dependency
+    implementation 'com.android.support:multidex:1.0.3'
 
 }

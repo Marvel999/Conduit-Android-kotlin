@@ -3,12 +3,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/conduit_green"
+    android:background="@color/white"
     tools:context=".auth.LoginFragment">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <TextView
+            android:id="@+id/tvSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign In"
+            android:textAllCaps="false"
+            android:textSize="30sp"/>
+
+
+    <EditText
+        android:id="@+id/edEmailId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="18sp"
+        android:textColor="@color/conduit_dark_gray"
+        android:hint="Email id"
+        />
+
+    <EditText
+        android:id="@+id/edPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="18sp"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/conduit_dark_gray"
+        android:hint="Password"
+        />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/signInBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign in"
+            android:paddingHorizontal="80dp"
+            android:paddingVertical="5dp"
+            android:textSize="16sp"
+            android:textAllCaps="false"
+            android:layout_marginTop="40dp"
+            />
+
+        <TextView
+            android:id="@+id/tvNoAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/conduit_green"
+            android:text="@string/need_an_account"/>
+
+    </LinearLayout>
+
 
 </FrameLayout>

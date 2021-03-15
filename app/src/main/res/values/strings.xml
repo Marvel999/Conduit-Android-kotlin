@@ -13,4 +13,6 @@
     <string name="menu_article">Article</string>
     <string name="menu_personalfeed">Personal Article</string>
     <string name="menu_profile">Profile</string>
+    <string name="need_an_account"><u>Need an account?</u></string>
+    <string name="have_an_account"><u>Have an account?</u></string>
 </resources>

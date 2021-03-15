@@ -1,6 +1,8 @@
 package com.example.api.service
 
 import com.example.api.model.entity.UserCred
+import com.example.api.model.entity.UserLoginRequest
+import com.example.api.model.requests.LoginRequest
 import com.example.api.model.requests.UserRequests
 import com.example.api.model.response.ArticlesResponse
 import com.example.api.model.response.UserResponse
@@ -18,6 +20,13 @@ interface ConduitApi {
     @POST("users")
     suspend fun addUser(
         @Body userRequests: UserRequests
+    ):Response<UserResponse>
+
+
+// login user in database
+    @POST("users/login")
+    suspend fun loginRequest(
+        @Body loginRequest: LoginRequest
     ):Response<UserResponse>
 
 // get articles

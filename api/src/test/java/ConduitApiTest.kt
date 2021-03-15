@@ -1,5 +1,7 @@
 import com.example.api.ConduitClient
 import com.example.api.model.entity.UserCred
+import com.example.api.model.entity.UserLoginRequest
+import com.example.api.model.requests.LoginRequest
 import com.example.api.model.requests.UserRequests
 import com.example.api.service.ConduitApi
 import kotlinx.coroutines.runBlocking
@@ -53,6 +55,16 @@ class ConduitApiTest {
         runBlocking {
             val user=conduitClient.api.addUser(UserRequests(userCred))
             assertEquals(userCred.username,user.body()?.user?.username)
+        }
+    }
+
+
+    @Test
+    fun `Login user`(){
+        val userCred=LoginRequest(UserLoginRequest("jatha","jatha123@gmail.com"))
+        runBlocking {
+            val user=conduitClient.api.loginRequest(userCred)
+            assertEquals(userCred.userLoginRequest.email,user.body()?.user?.email)
         }
     }
 

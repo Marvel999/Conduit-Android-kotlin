@@ -9,6 +9,6 @@ object ArticleRepo {
 
    suspend fun getGlobleFeedArticle()=api.getArticles()
 
-    suspend fun userSignup(userRequests: UserRequests)=api.addUser(userRequests)
+
 
 }

@@ -1,5 +1,6 @@
 package com.example.blogoapp.auth
 
+import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.api.model.entity.UserCred
 import com.example.api.model.requests.UserRequests
+import com.example.blogoapp.AppHomeActivity
 import com.example.blogoapp.R
 
 class SignupFragment : Fragment() {
@@ -62,6 +64,7 @@ class SignupFragment : Fragment() {
                     )
                 )
             }
+
         }
         tvAlreadyAccount.setOnClickListener {
             findNavController().navigate(R.id.gotoLoginFragment)
@@ -71,7 +74,11 @@ class SignupFragment : Fragment() {
 
             if (!it.isEmpty()) {
                 Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.gotoLoginFragment)
+                Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
+                val intent= Intent(activity,AppHomeActivity::class.java)
+                startActivity(intent)
+                activity?.finish()
+//                findNavController().navigate(R.id.gotoLoginFragment)
 
 
             }else

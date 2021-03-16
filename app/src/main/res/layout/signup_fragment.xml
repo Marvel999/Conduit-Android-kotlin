@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sign Up"
+        android:inputType="text"
         android:textAllCaps="false"
         android:textSize="30sp"/>
 
@@ -39,8 +40,10 @@
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:layout_marginTop="15dp"
+        android:ems="10"
         android:layout_marginHorizontal="40dp"
         android:textSize="18sp"
+        android:inputType="textEmailAddress"
         android:textColor="@color/conduit_dark_gray"
         android:hint="Email id"
         />
@@ -52,6 +55,8 @@
         android:padding="5dp"
         android:layout_marginHorizontal="40dp"
         android:textSize="18sp"
+        android:inputType="textPassword"
+        android:ems="10"
         android:layout_marginTop="15dp"
         android:textColor="@color/conduit_dark_gray"
         android:hint="Password"

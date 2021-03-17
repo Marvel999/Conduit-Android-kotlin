@@ -5,14 +5,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import androidx.lifecycle.ViewModelProvider
 import com.example.api.ConduitClient
+import com.example.blogoapp.auth.SignupViewModel
 import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         Handler().postDelayed({
                               val intent = Intent(this@MainActivity,AuthenticationActivity::class.java)
                                 startActivity(intent)

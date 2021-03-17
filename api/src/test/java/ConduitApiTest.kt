@@ -1,15 +1,11 @@
 import com.example.api.ConduitClient
 import com.example.api.model.entity.UserCred
-import com.example.api.model.entity.UserLoginRequest
-import com.example.api.model.requests.LoginRequest
 import com.example.api.model.requests.UserRequests
-import com.example.api.service.ConduitApi
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Test
 import java.util.*
-import kotlin.random.Random.Default.nextInt
 
 class ConduitApiTest {
 

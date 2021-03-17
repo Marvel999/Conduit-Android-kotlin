@@ -11,10 +11,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.api.model.entity.User
 import com.example.api.model.entity.UserCred
 import com.example.api.model.requests.UserRequests
 import com.example.blogoapp.AppHomeActivity
+import com.example.blogoapp.AuthenticationActivity
 import com.example.blogoapp.R
 
 class SignupFragment : Fragment() {
@@ -27,8 +30,7 @@ class SignupFragment : Fragment() {
     companion object {
         fun newInstance() = SignupFragment()
     }
-
-    private lateinit var viewModel: SignupViewModel
+val viewModel: SignupViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +52,6 @@ class SignupFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
 
         signupBtn.setOnClickListener {
             if (validationCheck()) {
@@ -68,23 +69,29 @@ class SignupFragment : Fragment() {
         }
         tvAlreadyAccount.setOnClickListener {
             findNavController().navigate(R.id.gotoLoginFragment)
+//            val tab=AuthenticationActivity().tabLayout.getTabAt(0)
+//            tab?.select()
         }
 
-        viewModel.userResponse.observe({lifecycle},{
-
-            if (!it.isEmpty()) {
-                Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
-                Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
-                val intent= Intent(activity,AppHomeActivity::class.java)
-                startActivity(intent)
-                activity?.finish()
-//                findNavController().navigate(R.id.gotoLoginFragment)
-
-
-            }else
-                Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
-
-        })
+//        viewModel.userResponse?.observe({lifecycle}){
+//
+//            when(it){
+//               is User->{
+//                   Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
+//                   Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
+////                val intent= Intent(activity,AppHomeActivity::class.java)
+////                startActivity(intent)
+////                activity?.finish()
+//                   findNavController().navigate(R.id.gotoLoginFragment)
+//
+//               }
+//                else->{
+//                    Toast.makeText(context, "User ${it}", Toast.LENGTH_LONG).show()
+//                }
+//            }
+//
+//
+//        }
 
 
     }

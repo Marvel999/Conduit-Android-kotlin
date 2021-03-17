@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.api.model.entity.User
 import com.example.blogoapp.AppHomeActivity
@@ -17,7 +18,7 @@ import org.w3c.dom.Text
 
 class LoginFragment : Fragment() {
 
-    private lateinit var tvNoAccount: Text
+    private lateinit var tvNoAccount: TextView
     private lateinit var edEmailId: EditText
     private lateinit var edPassword: EditText
     private lateinit var signInBtn: Button
@@ -55,8 +56,8 @@ class LoginFragment : Fragment() {
 
         signInBtn.setOnClickListener {
             viewModel.userLoginRequest(
-                edEmailId.text.toString(),
-                edPassword.text.toString()
+                edEmailId.text.toString().trim(),
+                edPassword.text.toString().trim()
             )
         }
 

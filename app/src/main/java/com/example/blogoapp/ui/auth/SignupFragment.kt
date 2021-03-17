@@ -1,7 +1,5 @@
-package com.example.blogoapp.auth
+package com.example.blogoapp.ui.auth
 
-import android.content.Intent
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,14 +8,10 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
-import com.example.api.model.entity.User
 import com.example.api.model.entity.UserCred
 import com.example.api.model.requests.UserRequests
-import com.example.blogoapp.AppHomeActivity
-import com.example.blogoapp.AuthenticationActivity
 import com.example.blogoapp.R
 
 class SignupFragment : Fragment() {

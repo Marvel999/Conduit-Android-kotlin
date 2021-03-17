@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.blogoapp.auth.LoginFragment"
+        android:name="com.example.blogoapp.ui.auth.LoginFragment"
         android:label="loginFragment"
         tools:layout="@layout/login_fragment" />
     <fragment
         android:id="@+id/signupFragment"
-        android:name="com.example.blogoapp.auth.SignupFragment"
+        android:name="com.example.blogoapp.ui.auth.SignupFragment"
         android:label="signupFragment"
         tools:layout="@layout/signup_fragment" />
 

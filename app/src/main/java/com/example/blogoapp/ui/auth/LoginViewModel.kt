@@ -1,13 +1,12 @@
-package com.example.blogoapp.auth
+package com.example.blogoapp.ui.auth
 
-import android.provider.ContactsContract
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.api.model.entity.User
-import com.example.api.model.response.UserResponse
 import com.example.blogoapp.data.UserAuthRepo
+import com.example.blogoapp.data.UserSharedpreferences
 import kotlinx.coroutines.launch
 
 class LoginViewModel : ViewModel() {
@@ -17,6 +16,7 @@ class LoginViewModel : ViewModel() {
        viewModelScope.launch{
            UserAuthRepo.userLogin(email,password)?.let {
                _userInfo.postValue(it)
+
            }
        }
    }

@@ -1,17 +1,13 @@
-package com.example.blogoapp.auth
+package com.example.blogoapp.ui.auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.api.ConduitClient
 import com.example.api.model.entity.User
-import com.example.api.model.entity.UserCred
 import com.example.api.model.requests.UserRequests
-import com.example.api.model.response.UserResponse
 import com.example.blogoapp.data.UserAuthRepo
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class SignupViewModel : ViewModel() {
     private val _userResponse=MutableLiveData<User>()

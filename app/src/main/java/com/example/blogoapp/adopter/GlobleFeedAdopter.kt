@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.api.model.entity.Article
 import com.example.api.model.entity.Author
 import com.example.blogoapp.R
+import com.example.blogoapp.extensions.loadImage
 import java.util.zip.Inflater
 
 class GlobleFeedAdopter:ListAdapter<Article,GlobleFeedAdopter.ArticleViewHolder>(
@@ -59,7 +60,7 @@ class GlobleFeedAdopter:ListAdapter<Article,GlobleFeedAdopter.ArticleViewHolder>
         holder.tvDate.text="25 Dec, 2021"
         holder.tvArticleTitle.text=article.title
         holder.tvArticleDescription.text=article.description
-        holder.imgAvtar.background=ColorDrawable(Color.GRAY)
+        holder.imgAvtar.loadImage(article.author.image,true)
 
 
     }

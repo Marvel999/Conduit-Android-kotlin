@@ -3,12 +3,12 @@ package com.example.blogoapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import com.example.api.model.entity.User
-import com.example.blogoapp.auth.SignupViewModel
+import com.example.blogoapp.data.UserSharedpreferences
+import com.example.blogoapp.ui.auth.SignupViewModel
 import com.google.android.material.tabs.TabLayout
 
 class AuthenticationActivity : AppCompatActivity() {
@@ -51,6 +51,8 @@ class AuthenticationActivity : AppCompatActivity() {
                 is User ->{
                     tab?.select()
                     Toast.makeText(this,"tab swithcing in android",Toast.LENGTH_LONG).show()
+                    UserSharedpreferences(this).token=it.token
+
                 }
             }
         }

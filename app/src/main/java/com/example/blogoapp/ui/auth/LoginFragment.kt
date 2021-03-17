@@ -1,4 +1,4 @@
-package com.example.blogoapp.auth
+package com.example.blogoapp.ui.auth
 
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
@@ -14,7 +14,7 @@ import android.widget.Toast
 import com.example.api.model.entity.User
 import com.example.blogoapp.AppHomeActivity
 import com.example.blogoapp.R
-import org.w3c.dom.Text
+import com.example.blogoapp.data.UserSharedpreferences
 
 class LoginFragment : Fragment() {
 
@@ -64,7 +64,8 @@ class LoginFragment : Fragment() {
         viewModel.userInfo.observe({lifecycle}){
             when(it){
                 is User ->{
-                    Toast.makeText(requireContext(),"Logged in"+it.token,Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),"Logged in",Toast.LENGTH_LONG).show()
+                    UserSharedpreferences(requireContext()).token=it.token
                     val intent =Intent(activity,AppHomeActivity::class.java)
                     startActivity(intent)
                     activity?.finish()

@@ -24,9 +24,10 @@
             android:layout_weight="3">
             <ImageView
                 android:id="@+id/imgAvtar"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_margin="15dp"/>
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="15dp"
+                android:src="@drawable/profileimg"/>
 
         </LinearLayout>
 

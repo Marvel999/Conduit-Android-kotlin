@@ -5,7 +5,7 @@ import com.example.api.model.requests.UserRequests
 
 object ArticleRepo {
 
-    val api=ConduitClient().api
+    val api=ConduitClient.api
 
    suspend fun getGlobleFeedArticle()=api.getArticles()
 

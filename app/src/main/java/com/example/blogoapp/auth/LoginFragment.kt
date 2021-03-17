@@ -64,7 +64,7 @@ class LoginFragment : Fragment() {
         viewModel.userInfo.observe({lifecycle}){
             when(it){
                 is User ->{
-                    Toast.makeText(requireContext(),"Logged in",Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(),"Logged in"+it.token,Toast.LENGTH_LONG).show()
                     val intent =Intent(activity,AppHomeActivity::class.java)
                     startActivity(intent)
                     activity?.finish()

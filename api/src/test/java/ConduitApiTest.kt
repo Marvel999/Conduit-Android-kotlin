@@ -9,7 +9,7 @@ import java.util.*
 
 class ConduitApiTest {
 
-    val conduitClient=ConduitClient()
+    val conduitClient=ConduitClient
     @Test
     fun getArticle(){
         runBlocking {

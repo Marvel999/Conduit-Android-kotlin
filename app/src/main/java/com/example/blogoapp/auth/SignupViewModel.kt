@@ -20,7 +20,8 @@ class SignupViewModel : ViewModel() {
     fun addUser(userRequests: UserRequests){
         viewModelScope.launch {
             val user: Unit =UserAuthRepo.userSignup(userRequests).let {
-                _userResponse.postValue(it.body()?.user)
+                _userResponse.postValue(it)
+
 
             }
         }

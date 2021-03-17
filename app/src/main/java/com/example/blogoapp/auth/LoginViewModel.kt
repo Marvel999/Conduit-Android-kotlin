@@ -16,7 +16,7 @@ class LoginViewModel : ViewModel() {
    fun userLoginRequest(email: String, password:String){
        viewModelScope.launch{
            UserAuthRepo.userLogin(email,password)?.let {
-               _userInfo.postValue(it.body()?.user)
+               _userInfo.postValue(it)
            }
        }
    }

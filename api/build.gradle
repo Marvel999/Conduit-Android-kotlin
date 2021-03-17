@@ -14,7 +14,7 @@ dependencies {
 
     //Retrofit
     api "com.squareup.retrofit2:retrofit:$retrofit_version"
-    //It is connecter between moshi and retrofit
+    //It is connecter between moshi and retrofitBuilder
     implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
     //Moshi json converter
     implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
@@ -31,5 +31,9 @@ dependencies {
 
 //multidex dependency
     implementation 'com.android.support:multidex:1.0.3'
+
+    //OKHTTP dependency
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.0")
+
 
 }

@@ -13,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.api.ConduitClient
@@ -20,9 +21,11 @@ import com.example.blogoapp.R
 import com.example.blogoapp.adopter.GlobleFeedAdopter
 import com.example.blogoapp.data.UserSharedpreferences
 import com.example.blogoapp.ui.article.ArticleViewModel
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class PersonalFeedFragment : Fragment() {
     private lateinit var feedRecyclerView: RecyclerView
+    private lateinit var fab: FloatingActionButton
     private lateinit var globleFeedAdopter: GlobleFeedAdopter
 
     private lateinit var personalFeedViewModel: PersonalFeedViewModel
@@ -36,6 +39,7 @@ class PersonalFeedFragment : Fragment() {
                 ViewModelProvider(this).get(PersonalFeedViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_personalfeed, container, false)
         feedRecyclerView = root.findViewById(R.id.feedRecylerView)
+        fab = root.findViewById(R.id.fab)
 
         globleFeedAdopter=GlobleFeedAdopter()
         feedRecyclerView.layoutManager= LinearLayoutManager(context)
@@ -63,6 +67,10 @@ class PersonalFeedFragment : Fragment() {
         progressDialog.show()
 
 
+
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.postArticleBS)
+        }
 
 
 

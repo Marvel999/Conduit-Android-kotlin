@@ -21,6 +21,10 @@
     </style>
 
     <style name="Theme.BlogoApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
+    <style name="Theme.BlogoApp.bottomsheet" parent="Theme.Design.BottomSheetDialog" >
+
+        <item name="android:background">@drawable/bottom_sheet_background</item>
+    </style>
 
     <style name="Theme.BlogoApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

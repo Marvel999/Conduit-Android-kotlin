@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.blogoapp.R
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class PostArticleBS : Fragment() {
+class PostArticleBS : BottomSheetDialogFragment() {
 
     companion object {
         fun newInstance() = PostArticleBS()
@@ -26,7 +27,12 @@ class PostArticleBS : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PostArticleBottomSheetViewModel::class.java)
-        // TODO: Use the ViewModel
+       viewModel.PostArticles(
+           body = "This is test article by jathalal",
+           title = "Jatalal Test Article",
+           description = "This article is for testing api from jathalal",
+           tagList = listOf("jatha","fun","test")
+       )
     }
 
 }

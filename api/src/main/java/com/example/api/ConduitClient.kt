@@ -17,6 +17,7 @@ object ConduitClient {
             req = req.newBuilder()
                 .header("Authorization", "Token $it")
                 .build()
+            print("Token"+ authToken)
         }
         chain.proceed(req)
     }

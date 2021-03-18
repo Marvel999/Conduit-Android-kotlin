@@ -9,7 +9,17 @@
         android:id="@+id/nav_article"
         android:name="com.example.blogoapp.ui.article.ArticleFragment"
         android:label="@string/menu_article"
-        tools:layout="@layout/fragment_article" />
+        tools:layout="@layout/fragment_article" >
+
+    </fragment>
+
+    <action
+        android:id="@+id/action_nav_article_to_postArticleBS"
+        app:destination="@id/postArticleBS"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
 
     <fragment
         android:id="@+id/nav_personalfeed"
@@ -22,4 +32,9 @@
         android:name="com.example.blogoapp.ui.profile.ProfileFragment"
         android:label="@string/menu_profile"
         tools:layout="@layout/fragment_profile" />
+    <dialog
+        android:id="@+id/postArticleBS"
+        android:name="com.example.blogoapp.ui.bottomsheet.PostArticleBS"
+        android:label="post_article_b_fragment"
+        tools:layout="@layout/post_article_b_fragment" />
 </navigation>

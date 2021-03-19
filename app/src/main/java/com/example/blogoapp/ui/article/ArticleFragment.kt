@@ -33,7 +33,7 @@ private lateinit var fab:FloatingActionButton
             savedInstanceState: Bundle?
     ): View? {
         articleViewModel =
-                ViewModelProvider(this).get(ArticleViewModel::class.java)
+                ViewModelProvider(requireActivity()).get(ArticleViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_article, container, false)
         feedRecyclerView = root.findViewById(R.id.feedRecylerView)
 
@@ -70,8 +70,10 @@ private lateinit var fab:FloatingActionButton
         articleViewModel.fetchGlobaleFeedArticle()
         articleViewModel.feed.observe({ lifecycle }) {
             globleFeedAdopter.submitList(it).let {
+//                globleFeedAdopter.notifyItemChanged(0)   Todo: Refrace the recyclerView
                 progressDialog.dismiss()
             }
+
         }
 
         fab.setOnClickListener {

@@ -8,6 +8,236 @@
     tools:context=".ui.profile.ProfileFragment">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/user_profile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_profile__child_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/profile_sublayout"
+            android:paddingTop="50dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/product_sans_bold"
+                android:maxLines="1"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:text="Manish"
+                android:textColor="@color/conduit_dark_gray"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/editBtn"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/ic_edit_icon"
+                app:layout_constraintBottom_toBottomOf="@+id/userName"
+                app:layout_constraintStart_toEndOf="@+id/userName"
+                app:layout_constraintTop_toTopOf="@+id/userName" />
+
+            <TextView
+                android:id="@+id/userBio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/product_sans"
+                android:lines="2"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="5dp"
+                android:text="I am an awsome person."
+                android:textColor="@color/conduit_dark_gray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_profile_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:id="@+id/userName_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_profile_layout">
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/product_sans_bold"
+            android:maxLines="1"
+            android:text="Username"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/profileUserName"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/product_sans"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:text="Manish"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+           />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/email_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName_layout">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:layout_weight="1"
+            android:fontFamily="@font/product_sans_bold"
+            android:maxLines="1"
+            android:text="Email id"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            />
+
+
+        <TextView
+            android:id="@+id/emailId"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/product_sans"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:text="abc@conduit.com"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+           />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bio_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email_layout">
+
+        <TextView
+            android:id="@+id/textBio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/product_sans_bold"
+            android:maxLines="1"
+            android:text="Bio"
+            android:layout_weight="1"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+            android:textStyle="bold"
+           />
+
+
+        <TextView
+            android:id="@+id/tvbio"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/product_sans"
+            android:lines="2"
+            android:layout_weight="1"
+            android:text="I am an awesome"
+            android:textColor="@color/conduit_dark_gray"
+            android:textSize="18sp"
+           />
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -19,7 +249,8 @@
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_menu_edit"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

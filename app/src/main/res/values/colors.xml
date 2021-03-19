@@ -5,7 +5,7 @@
     <color name="conduit_dark_gray">#595E61</color>
     <color name="conduit_dark_green">#347834</color>
     <color name="conduit_gray_lite">#bbb</color>
-    <color name="white">#EFEFEF</color>
+    <color name="white">#F8F8F8</color>
     <color name="black">#000000</color>
     <color name="transprentgreen">#365CB85C</color>
 </resources>

@@ -12,7 +12,7 @@ import com.example.blogoapp.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class PostArticleBS : BottomSheetDialogFragment() {
+class UpdateUserInfo : BottomSheetDialogFragment() {
     companion object {
         fun newInstance() = PostArticleBS()
     }
@@ -24,7 +24,7 @@ class PostArticleBS : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.post_article_b_fragment, container, false)
+        return inflater.inflate(R.layout.fragment_update_user_info, container, false)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

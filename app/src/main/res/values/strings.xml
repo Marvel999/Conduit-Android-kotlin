@@ -15,4 +15,6 @@
     <string name="menu_profile">Profile</string>
     <string name="need_an_account"><u>Need an account?</u></string>
     <string name="have_an_account"><u>Have an account?</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

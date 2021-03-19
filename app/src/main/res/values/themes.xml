@@ -21,9 +21,21 @@
     </style>
 
     <style name="Theme.BlogoApp.AppBarOverlay" parent="ThemeOverlay.AppCompat.ActionBar" />
-    <style name="Theme.BlogoApp.bottomsheet" parent="Theme.Design.BottomSheetDialog" >
 
-        <item name="android:background">@drawable/bottom_sheet_background</item>
+    <style name="MyBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/MYBottomSheetStyle</item>
+
+    </style>
+
+
+    <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="buttonStyle">@style/bottomButtomStyle</item>
+    </style>
+    <style name="bottomButtomStyle" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="background">@drawable/green_circuler_background</item>
+        <item name="android:buttonCornerRadius" tools:targetApi="p">5dp</item>
     </style>
 
     <style name="Theme.BlogoApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />

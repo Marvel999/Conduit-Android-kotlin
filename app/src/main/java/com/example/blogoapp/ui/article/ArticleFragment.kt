@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import androidx.navigation.fragment.findNavController
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.TextView
@@ -18,9 +19,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.blogoapp.R
 import com.example.blogoapp.adopter.GlobleFeedAdopter
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class ArticleFragment : Fragment() {
-
+private lateinit var fab:FloatingActionButton
     private lateinit var feedRecyclerView: RecyclerView
    private lateinit var globleFeedAdopter: GlobleFeedAdopter
     private lateinit var articleViewModel: ArticleViewModel
@@ -45,6 +47,7 @@ class ArticleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        fab=view.findViewById(R.id.fab)
 
 
         val progressDialog = Dialog(requireContext())
@@ -69,6 +72,10 @@ class ArticleFragment : Fragment() {
             globleFeedAdopter.submitList(it).let {
                 progressDialog.dismiss()
             }
+        }
+
+        fab.setOnClickListener {
+            findNavController().navigate(R.id.postArticleBS)
         }
     }
 }

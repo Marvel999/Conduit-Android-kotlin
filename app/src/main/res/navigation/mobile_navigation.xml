@@ -37,4 +37,19 @@
         android:name="com.example.blogoapp.ui.bottomsheet.PostArticleBS"
         android:label="post_article_b_fragment"
         tools:layout="@layout/post_article_b_fragment" />
+    <dialog
+        android:id="@+id/updateUserInfo"
+        android:name="com.example.blogoapp.ui.bottomsheet.UpdateUserInfo"
+        android:label="UpdateUserInfo"
+        tools:layout="@layout/fragment_update_user_info"/>
+
+
+    <action
+        android:id="@+id/action_nav_article_to_updateUserInfo"
+        app:destination="@id/updateUserInfo"
+        app:enterAnim="@anim/nav_default_pop_enter_anim"
+        app:exitAnim="@anim/nav_default_pop_exit_anim"
+        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+
 </navigation>

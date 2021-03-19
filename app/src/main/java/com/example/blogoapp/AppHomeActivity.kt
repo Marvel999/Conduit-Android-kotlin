@@ -22,6 +22,7 @@ import com.example.blogoapp.R
 import com.example.blogoapp.data.UserSharedpreferences
 import com.example.blogoapp.extensions.loadImage
 import com.example.blogoapp.ui.ActivityViewModel
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class AppHomeActivity : AppCompatActivity() {
 

@@ -5,13 +5,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    android:theme="@style/Theme.BlogoApp.bottomsheet"
-    style="@style/Theme.BlogoApp.bottomsheet"
+   android:background="@drawable/bottom_sheet_background"
 >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="10dp">
 
     <View
         android:layout_width="150dp"
-        android:layout_height="10dp"
+        android:layout_height="6dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
         android:background="@drawable/bottom_sheet_view_background"/>
@@ -23,7 +27,65 @@
         android:layout_marginTop="20dp"
         android:textColor="@color/black"
         android:textStyle="bold"
-        android:textSize="30dp"
+        android:textSize="20sp"
         android:text="Create Article" />
+
+    <EditText
+        android:id="@+id/edTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:textColor="@color/conduit_dark_gray"
+        android:hint="Article Title"
+        />
+
+    <EditText
+        android:id="@+id/edShortDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        android:textColor="@color/conduit_dark_gray"
+        android:hint="Short Description"
+        />
+
+    <EditText
+        android:id="@+id/edBioId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginHorizontal="40dp"
+        android:textSize="18sp"
+        android:lines="5"
+        android:layout_gravity="center"
+        android:textColor="@color/conduit_dark_gray"
+        android:hint="Article"
+        />
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/updateBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update"
+        android:layout_gravity="center"
+        android:paddingHorizontal="80dp"
+        android:paddingVertical="5dp"
+        android:textSize="16sp"
+        android:background="@drawable/green_circuler_background"
+        android:layout_marginBottom="30dp"
+        android:textAllCaps="false"
+        android:layout_marginTop="40dp"
+        />
+    </LinearLayout>
 
 </LinearLayout>

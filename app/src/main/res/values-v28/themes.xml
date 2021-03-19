@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="buttonStyle">@style/bottomButtomStyle</item>
+        <item name="android:buttonCornerRadius">5dp</item>
+    </style>
+
+    <style name="bottomButtomStyle" parent="Widget.MaterialComponents.Button">
+        <item name="textAllCaps">false</item>
+        <item name="background">@drawable/green_circuler_background</item>
+        <item name="android:buttonCornerRadius">5dp</item>
+    </style>
+</resources>

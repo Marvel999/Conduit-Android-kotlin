@@ -9,8 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.example.api.ConduitClient
+import com.example.api.model.response.ArticleResponse
+import com.example.api.model.response.UserResponse
 import com.example.blogoapp.R
+import com.example.blogoapp.data.UserSharedpreferences
 import com.example.blogoapp.ui.profile.ProfileViewModel
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -48,13 +53,58 @@ class UpdateUserInfo : BottomSheetDialogFragment() {
         edImageId=view.findViewById(R.id.edImageId)
         edPassword=view.findViewById(R.id.edPassword)
         updateBtn.background=resources.getDrawable(R.drawable.green_circuler_background)
+        ConduitClient.authToken=UserSharedpreferences(requireContext()).token
 
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+        viewModel.getCurrentUserInfo()
 
+        viewModel.userRes.observe({lifecycle}){
+            edBioId.setText(it.user.bio ?:" ")
+            edUserName.setText(it.user.username ?: " ")
+            edEmailId.setText(it.user.email ?:" ")
+            edImageId.setText(it.user.image ?: " ")
+        }
+        updateBtn.setOnClickListener {
+            if (checkValidation()){
+                viewModel.PostArticles(
+                    bio = edBioId.text.takeIf { it.isNotBlank() }.toString(),
+                    userName = edUserName.text.takeIf { it.isNotBlank() }.toString(),
+                    image = edImageId.text.toString(),
+                    email = edEmailId.text.takeIf { it.isNotBlank() }.toString(),
+                    password = edPassword.text.takeIf { it.isNotBlank() }.toString()
+                ).let {
+                    Toast.makeText(requireContext(),"Please Wait...", Toast.LENGTH_LONG).show()
+
+                }
+            }
+        }
+
+        viewModel.userResponse.observe({lifecycle}){
+            when(it){
+                is UserResponse ->{
+                    Toast.makeText(requireContext(),"Article is successful", Toast.LENGTH_LONG).show()
+                    dismiss()
+                }
+                else->{
+                    Toast.makeText(requireContext(),"Sorry Some Technical Issue", Toast.LENGTH_LONG).show()
+                    dismiss()
+                }
+            }
+        }
+    }
+
+    fun checkValidation():Boolean{
+        if (edUserName.text.isEmpty())
+            return false
+        else if (edEmailId.text.isEmpty())
+            return false
+        else return !edPassword.text.isEmpty()
     }
 
 
 }
+
+

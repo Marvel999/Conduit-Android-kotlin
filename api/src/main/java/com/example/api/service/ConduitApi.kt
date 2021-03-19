@@ -54,6 +54,10 @@ suspend fun loginUser(
         @Path("username") username:String
     ):Response<ProfileResponse>
 
+    //get current user
+    @GET("user")
+    suspend fun getCurrentUser():Response<UserResponse>
+
     //update Profile
 
     @PUT("user")

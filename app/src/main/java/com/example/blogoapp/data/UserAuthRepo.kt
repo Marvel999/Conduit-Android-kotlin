@@ -31,5 +31,8 @@ object UserAuthRepo {
     return response.body()
     }
 
+    suspend fun getUserProfile(userName:String)= authApi.getProfile(username = userName)
+    suspend fun getCurrentUser()= authApi.getCurrentUser()
+
 
 }

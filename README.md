@@ -1,4 +1,4 @@
-![](https://user-images.githubusercontent.com/43094705/111874905-26571e80-89bd-11eb-9c27-26e6b60cb6ab.png)
+![](https://cloud.githubusercontent.com/assets/556934/25672246/9a20e960-2fe7-11e7-99d3-23652878a2c2.png)
 
 > ### Android/Kotlin codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 

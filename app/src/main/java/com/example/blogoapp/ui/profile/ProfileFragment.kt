@@ -1,11 +1,16 @@
 package com.example.blogoapp.ui.profile
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +44,11 @@ class ProfileFragment : Fragment() {
         return root
     }
 
+
+
+
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fab=view.findViewById(R.id.fab)
@@ -54,6 +64,26 @@ class ProfileFragment : Fragment() {
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+
+
+        val progressDialog = Dialog(requireContext())
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        progressDialog.setContentView(R.layout.custom_dialog_progress)
+
+/* Custom setting to change TextView text,Color and Text Size according to your Preference*/
+
+        val progressTv = progressDialog.findViewById(R.id.progress_tv) as TextView
+        progressTv.text = resources.getString(R.string.loading)
+        progressTv.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        progressTv.textSize = 19F
+
+        progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+
+
         fab.setOnClickListener {
             findNavController().navigate(R.id.updateUserInfo)
         }
@@ -62,6 +92,7 @@ class ProfileFragment : Fragment() {
         }
         profileViewModel.getCurrentUserInfo()
         profileViewModel.userRes.observe({lifecycle}){
+            progressDialog.dismiss()
             userName.text=it.user.username
             profileUserName.text=it.user.username
             userBio.text=it.user.bio

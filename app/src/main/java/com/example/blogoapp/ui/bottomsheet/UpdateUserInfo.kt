@@ -1,15 +1,20 @@
 package com.example.blogoapp.ui.bottomsheet
 
+import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.example.api.ConduitClient
 import com.example.api.model.response.ArticleResponse
@@ -61,11 +66,39 @@ class UpdateUserInfo : BottomSheetDialogFragment() {
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         viewModel.getCurrentUserInfo()
 
+
+        val progressDialog = Dialog(requireContext())
+        progressDialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        progressDialog.setContentView(R.layout.custom_dialog_progress)
+
+/* Custom setting to change TextView text,Color and Text Size according to your Preference*/
+
+        val progressTv = progressDialog.findViewById(R.id.progress_tv) as TextView
+        progressTv.text = resources.getString(R.string.loading)
+        progressTv.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+        progressTv.textSize = 19F
+
+        progressDialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+
+
+
         viewModel.userRes.observe({lifecycle}){
-            edBioId.setText(it.user.bio ?:" ")
+            when(it){
+            is UserResponse->{
+                edBioId.setText(it.user.bio ?:" ")
             edUserName.setText(it.user.username ?: " ")
             edEmailId.setText(it.user.email ?:" ")
             edImageId.setText(it.user.image ?: " ")
+                progressDialog.dismiss()
+            }
+                else->{
+                    Toast.makeText(requireContext(),"Error in server", Toast.LENGTH_LONG).show()
+                    progressDialog.dismiss()
+                }
+            }
         }
         updateBtn.setOnClickListener {
             if (checkValidation()){
@@ -86,6 +119,7 @@ class UpdateUserInfo : BottomSheetDialogFragment() {
             when(it){
                 is UserResponse ->{
                     Toast.makeText(requireContext(),"Article is successful", Toast.LENGTH_LONG).show()
+                    viewModel.getCurrentUserInfo()
                     dismiss()
                 }
                 else->{

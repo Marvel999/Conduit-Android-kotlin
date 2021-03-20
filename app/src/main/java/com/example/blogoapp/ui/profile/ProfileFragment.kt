@@ -98,7 +98,9 @@ class ProfileFragment : Fragment() {
             userBio.text=it.user.bio
             tvbio.text=it.user.bio
             emailId.text=it.user.email
+            if(!it.user.image?.isEmpty()!!){
             Glide.with(this).load(it.user.image).circleCrop().into(profileImage)
+            }
         }
     }
 }

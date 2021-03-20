@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.edit
 import androidx.lifecycle.ViewModelProvider
+import com.example.api.ConduitClient
 import com.example.blogoapp.R
 import com.example.blogoapp.data.UserSharedpreferences
 import com.example.blogoapp.extensions.loadImage
@@ -35,15 +37,40 @@ class AppHomeActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         activityViewModel= ViewModelProvider(this).get(ActivityViewModel::class.java)
+        ConduitClient.authToken=UserSharedpreferences(this).token
+        activityViewModel.getCurrentUserInfo()
+
+
+
 
         val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
         val navView: NavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(R.id.nav_host_fragment)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val hView = navView.getHeaderView(0)
-        hView.findViewById<ImageView>(R.id.imageView)
-        .loadImage("https://new-img.patrika.com/upload/2019/05/26/dilip_joshi_1_6302724_835x547-m.png",true)//Todo: Set real user image
+        activityViewModel.userRes.observe({lifecycle}) {
+            val hView = navView.getHeaderView(0)
+            if (!it.user.image?.isEmpty()!!) {
+                hView.findViewById<ImageView>(R.id.imageView)
+                    .loadImage(
+                        it.user.image!!,
+                        true
+                    )
+            }
+            if (!it.user.username.isEmpty()){
+                hView.findViewById<TextView>(R.id.userName_nav)
+                    .setText(
+                        it.user.username,
+                    )
+            }
+            if (!it.user.email.isEmpty()){
+                hView.findViewById<TextView>(R.id.email_nav)
+                    .setText(
+                        it.user.email,
+                    )
+            }
+        }
+        //Todo: Set real user image
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.nav_article, R.id.nav_personalfeed, R.id.nav_profile), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
